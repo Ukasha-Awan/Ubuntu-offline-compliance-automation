@@ -1,0 +1,64 @@
+
+PLAY [CIS compliance audit] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check OS version and family] ****************************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ansible version] **********************************
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "This role is running a supported version of ansible 2.16.14 >= 2.12.1"
+}
+
+TASK [ubuntu2204-cis : Capture current password state of connecting user"] *****
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Assert that password set for osboxes and account not locked] ***
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "You have a password set for sudo user osboxes"
+}
+
+TASK [ubuntu2204-cis : Ensure root password is set] ****************************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Ensure root password is set] ****************************
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "You have a root password set"
+}
+
+TASK [ubuntu2204-cis : Check ubtu22cis_bootloader_password_hash variable has been changed] ***
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | check password is set] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | check password is set] ***
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | if password blank or incorrect type and not being set] ***
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "Grub User root has a valid password set to be used in single user mode"
+}
+
+TASK [ubuntu2204-cis : Discover and set container variable if required] ********
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Load variable for container] ****************************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Output if discovered is a container] ********************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Gather the package facts before prelim] *****************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Register if snap being used] ***********
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Register if squashfs is built into the kernel] ***

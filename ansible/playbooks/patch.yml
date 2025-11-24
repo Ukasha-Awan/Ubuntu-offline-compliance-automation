@@ -1,0 +1,7 @@
+- name: Patch managed node using local http repo
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: yes

@@ -1,0 +1,7 @@
+- name: CIS compliance audit
+  hosts: all
+  become: yes
+  vars:
+    ubunntu22cis_audit_only: true
+  roles:
+    - ubuntu2204-cis

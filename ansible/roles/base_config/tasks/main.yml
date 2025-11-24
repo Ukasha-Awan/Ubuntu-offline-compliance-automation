@@ -1,0 +1,20 @@
+- name: Set hostname
+  hostname:
+    name: "{{ custom_hostname }}"
+
+- name: Create user
+  user:
+    name: "{{ Custom_user }}"
+    state: present
+    groups: sudo
+    shell: /bin/bash
+
+- name: Set timezone
+  timezone:
+    name: "{{ custom_timezone }}"
+
+- name: ensure chrony package is installed for time sync
+  apt:
+    name: chrony
+    state: present
+    update_cache: yes

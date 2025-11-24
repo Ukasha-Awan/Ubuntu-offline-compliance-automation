@@ -1,0 +1,33 @@
+- name: Ubuntu Desktop Hardening
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Set Screen to auto-lock after 5 minutes
+      become_user: osboxes
+      environment:
+        DBUG_SESSION_BUS_ADDRESS: "unix:path=/run/user/1000/bus"
+        DISPLAY: ":0"
+      command: gsettings set org.gnome.desktop.session idle-delay 300
+
+    - name: Require password when unlocking
+      become_user: osboxes
+      environment:
+        DBUG_SESSION_BUS_ADDRESS: "unix:path=/run/user/1000/bus"
+        DISPLAY: ":0"
+      command: gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend true
+
+    - name: Disable USB auto-mount
+      become_user: osboxes
+      environment:
+        DBUG_SESSION_BUS_ADDRESS: "unix:path=/run/user/1000/bus"
+        DISPLAY: ":0"
+      command: gsettings set org.gnome.desktop.media-handling automount false
+
+    - name: Disable USB auto-open
+      become_user: osboxes
+      environment:
+        DBUG_SESSION_BUS_ADDRESS: "unix:path=/run/user/1000/bus"
+        DISPLAY: ":0"
+      command: gsettings set org.gnome.desktop.media-handling automount-open false
+
+

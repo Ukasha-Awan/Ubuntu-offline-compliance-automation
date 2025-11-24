@@ -1,0 +1,5 @@
+- name: apply base configuration to all nodes
+  hosts: all
+  become: true
+  roles:
+    - base_config

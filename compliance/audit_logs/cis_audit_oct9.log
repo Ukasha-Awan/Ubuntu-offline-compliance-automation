@@ -1,0 +1,84 @@
+
+PLAY [CIS compliance audit] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check OS version and family] ****************************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ansible version] **********************************
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "This role is running a supported version of ansible 2.16.14 >= 2.12.1"
+}
+
+TASK [ubuntu2204-cis : Capture current password state of connecting user"] *****
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Assert that password set for osboxes and account not locked] ***
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "You have a password set for sudo user osboxes"
+}
+
+TASK [ubuntu2204-cis : Ensure root password is set] ****************************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Ensure root password is set] ****************************
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "You have a root password set"
+}
+
+TASK [ubuntu2204-cis : Check ubtu22cis_bootloader_password_hash variable has been changed] ***
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | check password is set] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | check password is set] ***
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Check ubtu22cis_grub_user password variable has been changed | if password blank or incorrect type and not being set] ***
+ok: [192.168.56.103] => {
+    "changed": false,
+    "msg": "Grub User root has a valid password set to be used in single user mode"
+}
+
+TASK [ubuntu2204-cis : Discover and set container variable if required] ********
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Load variable for container] ****************************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Output if discovered is a container] ********************
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : Gather the package facts before prelim] *****************
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Register if snap being used] ***********
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Register if squashfs is built into the kernel] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Section 1.1 | Create list of mount points] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Section 1.1 | Retrieve mount options - call mount] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Section 1.1 | Retrieve mount options - build fact] ***
+ok: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | AUDIT | Debug of mount variables to assist in troubleshooting] ***
+skipping: [192.168.56.103]
+
+TASK [ubuntu2204-cis : PRELIM | PATCH | Run apt update] ************************
+fatal: [192.168.56.103]: FAILED! => {"changed": true, "msg": "Failed to update apt cache: E:Failed to fetch file:/mnt/repo/updates/dists/jammy-security/main/binary-i386/Packages  File not found - /mnt/repo/updates/dists/jammy-security/main/binary-i386/Packages (2: No such file or directory), E:Some index files failed to download. They have been ignored, or old ones used instead."}
+
+PLAY RECAP *********************************************************************
+192.168.56.103             : ok=14   changed=0    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+
